@@ -22,7 +22,7 @@
     a {
       &.card-link {
         color: #000000;
-        
+
         @media (hover: hover) {
           &:hover {
             color: $primary !important;
@@ -69,10 +69,18 @@
       }
     }
 
+    .rendux-input:checked + label {
+      background: $primary-dark !important;
+    }
+
     .qr-code-container {
       svg {
         fill: $primary-dark;
       }
+    }
+
+    .qr-code-theme-color {
+      stroke: $primary-dark !important;
     }
 
     .hb-widget-chart-background {
@@ -95,8 +103,8 @@
       }
     }
 
-    .uix-highlight-icon {
-      animation: uix-glow-icon 1s ease-in-out infinite alternate;
+    .login-container {
+      background-color: $primary-dark  !important;
     }
 
     @keyframes uix-glow-icon {

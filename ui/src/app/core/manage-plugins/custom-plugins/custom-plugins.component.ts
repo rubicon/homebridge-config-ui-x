@@ -30,6 +30,7 @@ export class CustomPluginsComponent implements OnInit, OnDestroy {
   public loading = true;
   public saveInProgress = false;
   public pluginSpinner = false;
+  public uiLoaded = false;
 
   private basePath: string;
   private iframe: HTMLIFrameElement;
@@ -130,6 +131,7 @@ export class CustomPluginsComponent implements OnInit, OnDestroy {
         case 'loaded':
           this.injectDefaultStyles(e);
           this.confirmReady(e);
+          this.uiLoaded = true;
           break;
         case 'request': {
           this.handleRequest(e);
@@ -226,7 +228,7 @@ export class CustomPluginsComponent implements OnInit, OnDestroy {
 
   handleUpdateConfig(event: MessageEvent, pluginConfig: Array<any>) {
     // refresh the schema form
-    this.schemaFormRefreshSubject.next();
+    this.schemaFormRefreshSubject.next(undefined);
 
     // ensure the update contains an array
     if (!Array.isArray(pluginConfig)) {
@@ -432,7 +434,7 @@ export class CustomPluginsComponent implements OnInit, OnDestroy {
         );
 
         this.saveInProgress = false;
-        this.$notification.configUpdated.next();
+        this.$notification.configUpdated.next(undefined);
 
         if (exit) {
           this.activeModal.close();

@@ -32,6 +32,16 @@
       background-color: $darkModePrimary;
     }
 
+    .rendux-label {
+      background: #898989 !important;
+      border-color: #898989 !important;
+    }
+
+    .rendux-input:checked + label {
+      background: $darkModePrimary !important;
+      border-color: $darkModePrimary !important;
+    }
+
     .btn-primary,
     .btn-default {
       @extend .btn-#{$baseBtn} !optional;
@@ -100,6 +110,10 @@
       }
     }
 
+    .qr-code-theme-color {
+      stroke: $darkModePrimary !important;
+    }
+
     a {
       &.card-link {
         color: #9e9e9e;
@@ -112,7 +126,7 @@
       }
 
       color: $darkModePrimary;
-      
+
       @media (hover: hover) {
         &:hover {
           text-decoration: underline;
@@ -315,8 +329,8 @@
       }
     }
 
-    .uix-highlight-icon {
-      animation: uix-glow-icon-dark-mode 1s ease-in-out infinite alternate;
+    .login-container {
+      background-color: #000000 !important;
     }
 
     @keyframes uix-glow-icon-dark-mode {
